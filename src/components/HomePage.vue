@@ -10,7 +10,7 @@
             <h1>Speedio</h1>
         </div>
         <ul class="list-menu">
-            <li @click="navigateTo('EventList')">Ver Anotações</li>
+            <li @click="goTo('EventList')">Ver Anotações</li>
             <li @click="navigateTo('AddEvent')">Adicionar Anotação</li>
         </ul>
     </aside>
@@ -45,8 +45,13 @@ export default {
     },
 
     methods: {
-        navigateTo(AddEvent, EventList) {
-            this.$router.push({ name: AddEvent, EventList });
+        navigateTo(AddEvent) {
+            this.$router.push({ name: AddEvent });
+            this.closeMenu();
+        },
+
+        goTo(EventList) {
+            this.$router.push({ name: EventList });
             this.closeMenu();
         },
 
