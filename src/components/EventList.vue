@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="button-container">
                                     <div class="btn-group">
-                                        <button type="button" class="btn" @click="openModal">
+                                        <button type="button" class="btn" @click="openModal(event, eventIndex)">
                                             <i class="fas fa-trash-alt">
                                             </i>
                                         </button>
@@ -62,7 +62,7 @@
                                                     <button type="button" class="btn btn-secondary" @click="closeModal">
                                                         Cancelar
                                                     </button>
-                                                    <button class="btn btn-danger" @click="deleteEvent(eventIndex)">
+                                                    <button class="btn btn-danger" @click="deleteEvent">
                                                         Excluir
                                                     </button>
                                                 </div>
@@ -106,7 +106,7 @@ export default {
         return {
             localEvents: [],
             showModal: false,
-            currentIndex: null
+            selectedEvent: null
         };
     },
 
@@ -115,8 +115,9 @@ export default {
     },
 
     methods: {
-        openModal(eventIndex) {
-            this.currentIndex = eventIndex;
+        openModal(event, eventIndex) {
+            this.selectedEvent = event;
+            this.selectedEvent = eventIndex
             this.showModal = true;
         },
 
@@ -133,11 +134,14 @@ export default {
             this.$emit('eventsUpdated', this.localEvents);
         },
 
-        deleteEvent(eventIndex) {
-            this.localEvents.splice(eventIndex, 1);
-            localStorage.setItem('events', JSON.stringify(this.localEvents));
-            this.$emit('eventsUpdated', this.localEvents);
-            this.closeModal();
+        deleteEvent() {
+            if (this.selectedEventIndex !== null) {
+                this.localEvents.splice(this.selectedEventIndex, 1);
+                localStorage.setItem('events', JSON.stringify(this.    localEvents));
+                this.$emit('eventsUpdated', this.localEvents);
+                this.closeModal();
+            }
+
         },
 
         formatDate(date) {
