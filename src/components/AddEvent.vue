@@ -52,6 +52,22 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="time">
+                        <strong>
+                            Horário
+                        </strong>
+                    </label>
+                    <div class="input-group">
+                        <input
+                        type="time"
+                        class="form-control"
+                        id="time"
+                        required
+                        v-model="newlocalEvent.time"
+                        autocomplete="off" />
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="date">
                         <strong>
                             Lembrete
@@ -59,8 +75,13 @@
                     </label>
                     <div>
                         <div class="input-group">
-                            <input type="date" class="form-control" id="date" v-model="newlocalEvent.date" required
-                                autocomplete="off" />
+                            <input 
+                            type="date" 
+                            class="form-control" 
+                            id="date" 
+                            v-model="newlocalEvent.date" 
+                            required
+                            autocomplete="off" />
                         </div>
                     </div>
                 </div>
@@ -94,7 +115,8 @@ export default {
                 title: '',
                 value: '',
                 category: '',
-                date: ''
+                date: '',
+                time: ''
             },
         };
     },
@@ -112,7 +134,8 @@ export default {
                 this.newlocalEvent.title &&
                 this.newlocalEvent.value &&
                 this.newlocalEvent.category &&
-                this.newlocalEvent.date
+                this.newlocalEvent.date &&
+                this.newlocalEvent.time
             ) {
                 this.$emit('eventAdded', this.newlocalEvent);
                 this.clearFields();
@@ -137,7 +160,8 @@ export default {
                 title: '',
                 value: '',
                 category: '',
-                date: ''
+                date: '',
+                time: ''
             }
         },
 
@@ -148,7 +172,8 @@ export default {
                 this.newlocalEvent.title &&
                 this.newlocalEvent.value &&
                 this.newlocalEvent.category &&
-                this.newlocalEvent.date
+                this.newlocalEvent.date &&
+                this.newlocalEvent.time
             ) {
                 this.addEvent();
                 this.navigateToEventList();
@@ -161,6 +186,7 @@ export default {
 </script>
 
 <style scoped>
+
 .container {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -174,7 +200,7 @@ export default {
     justify-content: center;
     text-align: center;
     align-items: center;
-    height: 600px;
+    height: 684px;
     width: 400px;
     margin: 20px auto;
 }

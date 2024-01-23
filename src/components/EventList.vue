@@ -33,6 +33,8 @@
                                         <span class="separator"></span>
                                         <p> {{ event.category }} - </p>
                                         <span class="separator"></span>
+                                        <p> {{ event.time }} - </p>
+                                        <span class="separator"></span>
                                         <p> {{ formatDate(event.date) }}</p>
                                     </div>
                                 </div>
