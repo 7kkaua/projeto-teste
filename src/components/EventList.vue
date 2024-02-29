@@ -139,7 +139,7 @@ export default {
         deleteEvent() {
             if (this.selectedEventIndex !== null) {
                 this.localEvents.splice(this.selectedEventIndex, 1);
-                localStorage.setItem('events', JSON.stringify(this.    localEvents));
+                localStorage.setItem('events', JSON.stringify(this.localEvents));
                 this.$emit('eventsUpdated', this.localEvents);
                 this.closeModal();
             }
@@ -186,7 +186,7 @@ export default {
     justify-content: center;
     width: 100%;
 }
-  
+
 
 .modal-body {
     text-align: left;

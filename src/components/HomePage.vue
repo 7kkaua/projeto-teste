@@ -7,7 +7,7 @@
     <!-- Menu Lateral -->
     <aside class="sidebar" :class="{ 'sidebar-open': isMenuOpen }">
         <div class="title-menu">
-            <h1>Speedio</h1>
+            <h1>[Nome]</h1>
         </div>
         <ul class="list-menu">
             <li @click="goTo('EventList')">Ver Anotações</li>
@@ -22,7 +22,7 @@
                     Anotações
                 </h1>
                 <h2>
-                    by Speedio
+                    by [Nome]
                 </h2>
             </div>
             <div class="btn-container">
